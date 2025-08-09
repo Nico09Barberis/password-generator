@@ -77,94 +77,112 @@ export default function PasswordGenerator() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded shadow">
-      <h1 className="text-2xl font-bold mb-4">Generador de Contraseñas Seguras</h1>
+    <div
+      className="max-w-xl mx-auto p-8 bg-white rounded-xl shadow-lg
+                  transform transition-transform duration-300 hover:scale-[1.02]"
+    >
+      <h1
+        className="text-3xl font-extrabold mb-6 text-center text-blue-600
+                  drop-shadow-md"
+      >
+        Generador de Contraseñas Seguras
+      </h1>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">Longitud: {length}</label>
+      <div className="mb-6">
+        <label className="block mb-2 font-semibold text-gray-700">
+          Longitud: <span className="text-blue-600">{length}</span>
+        </label>
         <input
           type="range"
           min="8"
           max="32"
           value={length}
           onChange={(e) => setLength(+e.target.value)}
-          className="w-full"
+          className="w-full h-2 rounded-lg appearance-none bg-gray-300
+                  cursor-pointer transition-colors hover:bg-blue-300"
         />
       </div>
 
-      <div className="space-y-2 mb-4">
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            checked={includeUpper}
-            onChange={() => setIncludeUpper(!includeUpper)}
-            className="mr-2"
-          />
-          Incluir mayúsculas (A-Z)
-        </label>
-
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            checked={includeLower}
-            onChange={() => setIncludeLower(!includeLower)}
-            className="mr-2"
-          />
-          Incluir minúsculas (a-z)
-        </label>
-
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            checked={includeNumbers}
-            onChange={() => setIncludeNumbers(!includeNumbers)}
-            className="mr-2"
-          />
-          Incluir números (0-9)
-        </label>
-
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            checked={includeSymbols}
-            onChange={() => setIncludeSymbols(!includeSymbols)}
-            className="mr-2"
-          />
-          Incluir símbolos (!@#$%)
-        </label>
-
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            checked={excludeSimilar}
-            onChange={() => setExcludeSimilar(!excludeSimilar)}
-            className="mr-2"
-          />
-          Excluir caracteres similares (i, l, 1, L, o, 0, O)
-        </label>
+      <div className="space-y-3 mb-6">
+        {[
+          {
+            label: "Incluir mayúsculas (A-Z)",
+            checked: includeUpper,
+            onChange: () => setIncludeUpper(!includeUpper),
+          },
+          {
+            label: "Incluir minúsculas (a-z)",
+            checked: includeLower,
+            onChange: () => setIncludeLower(!includeLower),
+          },
+          {
+            label: "Incluir números (0-9)",
+            checked: includeNumbers,
+            onChange: () => setIncludeNumbers(!includeNumbers),
+          },
+          {
+            label: "Incluir símbolos (!@#$%)",
+            checked: includeSymbols,
+            onChange: () => setIncludeSymbols(!includeSymbols),
+          },
+          {
+            label: "Excluir caracteres similares (i, l, 1, L, o, 0, O)",
+            checked: excludeSimilar,
+            onChange: () => setExcludeSimilar(!excludeSimilar),
+          },
+        ].map(({ label, checked, onChange }) => (
+          <label
+            key={label}
+            className="flex items-center cursor-pointer select-none
+                    text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={onChange}
+              className="mr-3 w-5 h-5 accent-blue-600 transition-transform
+                      hover:scale-125"
+            />
+            {label}
+          </label>
+        ))}
       </div>
 
       <button
         onClick={generatePassword}
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold
+                shadow-md hover:bg-blue-700 active:scale-95 transition-transform"
+        type="button"
       >
         Generar Contraseña
       </button>
 
       {password && (
-        <div className="mt-6">
-          <div className="flex items-center justify-between bg-gray-100 p-3 rounded select-all">
-            <span className="font-mono break-all">{password}</span>
+        <div className="mt-8">
+          <div
+            className="flex items-center justify-between bg-gray-100 p-4 rounded-lg
+                        font-mono text-gray-800 select-all
+                        shadow-inner ring-1 ring-gray-300"
+          >
+            <span className="break-all">{password}</span>
             <button
               onClick={copyToClipboard}
-              className="ml-4 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition"
+              className={`ml-4 px-4 py-2 rounded-lg font-semibold
+                        transition-colors transform
+                        ${
+                          copied
+                            ? "bg-green-500 text-white"
+                            : "bg-blue-600 text-white hover:bg-blue-700"
+                        }
+                        hover:scale-110 active:scale-95`}
+              type="button"
             >
               {copied ? "Copiado ✔" : "Copiar"}
             </button>
           </div>
 
-          <p className="mt-2 font-semibold">
-            Seguridad: <span>{getStrength()}</span>
+          <p className="mt-3 text-center font-semibold text-gray-700">
+            Seguridad: <span className="text-blue-600">{getStrength()}</span>
           </p>
         </div>
       )}
