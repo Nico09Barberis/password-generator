@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Generator from "./pages/GeneratorPage";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/generator" element={<Generator />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
 

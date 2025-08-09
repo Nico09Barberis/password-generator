@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-4 mt-8">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between">
-        <p className="text-sm">
+    <footer className="bg-gray-800 text-gray-300 py-4">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center">
+        <p className="text-sm mr-5">
           © {new Date().getFullYear()} Generador de Contraseñas. Todos los derechos reservados.
         </p>
         <a

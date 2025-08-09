@@ -13,6 +13,14 @@ export default function Nav() {
         <ul className="flex space-x-4">
           <li>
             <Link
+              to="/about"
+              className="hover:text-blue-200 transition"
+            >
+              Acerca de
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/generator"
               className="hover:text-blue-200 transition"
             >
