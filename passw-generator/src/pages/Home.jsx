@@ -5,7 +5,9 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero ocupa 100vh */}
       <section
-        className="flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6"
+        className="flex flex-col items-center justify-center text-center
+             bg-gradient-to-r from-teal-900 via-cyan-800 to-blue-900
+             text-white px-6"
         style={{ minHeight: "100vh" }}
       >
         <h1 className="text-6xl font-extrabold mb-6 leading-tight max-w-4xl">
