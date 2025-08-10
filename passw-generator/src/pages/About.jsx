@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gray-900 px-6 py-12 flex items-center justify-center">
       <div className="max-w-5xl w-full p-10">
-        <h1 className="text-5xl font-extrabold text-blue-400 mb-10 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-400 mb-10 text-center">
           Acerca del Generador de Contraseñas
         </h1>
 
