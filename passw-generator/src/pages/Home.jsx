@@ -10,10 +10,10 @@ export default function Home() {
              text-white px-6"
         style={{ minHeight: "100vh" }}
       >
-        <h1 className="text-6xl font-extrabold mb-6 leading-tight max-w-4xl">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight max-w-4xl">
           🔐 Clave Pro
         </h1>
-        <h2 className="text-3xl font-bold mb-6 leading-tight max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight max-w-3xl">
           Generador de Contraseñas Seguras
         </h2>
         <p className="text-xl max-w-xl">
