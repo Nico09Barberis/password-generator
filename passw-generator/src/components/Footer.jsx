@@ -6,7 +6,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Barberis Nicolas. Todos los derechos reservados.
         </p>
         <a
-          href="https://tu-portafolio.com"
+          href="https://web-portafolio-phi.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-blue-300  hover:underline transition mt-2 sm:mt-0"
